@@ -1,0 +1,110 @@
+$dynamic=#c8ffd6
+$surface=#000
+$base=#fff
+$secondary=#3798d6
+
+$borderColor = $dynamic
+
+// *
+//   box-sizing: border-box
+
+body
+  display grid
+  place-items center
+  min-height 100vh
+
+.live-indicator
+  // width 8px
+  // height 8px
+  position relative
+  display flex
+  align-items center
+  justify-content center
+  // margin 5px
+
+  .red-dot, .pulse
+    border-radius 999px
+    display flex
+    align-items center
+    justify-content center
+    box-sizing border-box
+    
+  .pulse
+    position absolute
+    animation-name red-dot-scale-fade
+    animation-iteration-count infinite 
+    animation-duration 2s
+
+    &.two
+      animation-delay 0.25s
+
+  .primary
+    background-color #2FB675
+    color #fff
+
+
+  .secondary
+    background-color #e3ddd9
+    color #000
+
+
+  .px8
+    width 8px
+    height 8px
+
+    &__br
+      border 1px solid $borderColor
+
+  .px12
+    width 12px
+    height 12px
+
+    &__br
+      border 2px solid $borderColor
+
+  .px16
+    min-width 16px
+    height 16px
+    padding-left 4px 
+    padding-right 4px 
+    font-size: 11px
+
+    &__br
+      border 2px solid $borderColor
+
+  .px20
+    min-width 20px
+    height 20px
+    padding-left 4px 
+    padding-right 4px 
+    font-size: 13px
+
+
+    &__br
+      border 2px solid $borderColor
+
+  .px24
+    min-width 24px
+    height 24px
+    padding-left 6px 
+    padding-right 6px 
+    font-size: 15px
+
+
+    &__br
+      border 3px solid $borderColor
+
+
+@keyframes red-dot-scale-fade
+  0%
+    opacity 0.5
+    transform scale(1)
+  50%
+    opacity 0
+    transform scale(3)
+  100%
+    opacity 0
+    transform scale(3)
+
+
+    

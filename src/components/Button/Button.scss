@@ -1,0 +1,196 @@
+.button {
+  position: relative;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0, -0.3, 0.5, 1.3);
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  overflow: hidden;
+
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+
+  .invisible {
+    opacity: 0;
+  }
+
+  .content-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0, -0.3, 0.5, 1.3);
+  }
+
+  &__primary {
+    background-color: #289962;
+    color: #fff;
+    &:hover {
+      .content-group {
+        transform: scale(1.05);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        opacity: 0.12;
+      }
+    }
+  }
+
+  &__secondary {
+    background-color: #f0ebe8;
+    color: #000;
+    &:hover {
+      .content-group {
+        transform: scale(1.05);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        opacity: 0.12;
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 2px #0099ff;
+    border-radius: 2px;
+  }
+
+  .overlay__primary {
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0, -0.3, 0.5, 1.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0.2;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease-out, height 0.5s ease-out;
+  }
+
+  .overlay__secondary {
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0, -0.3, 0.5, 1.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: #000;
+    border-radius: 50%;
+    opacity: 0.2;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease-out, height 0.5s ease-out;
+  }
+
+  &:active {
+    .overlay__primary {
+      width: 300%;
+      height: 300%;
+    }
+    .overlay__secondary {
+      width: 300%;
+      height: 300%;
+    }
+
+    transform: scale(0.95);
+  }
+
+  .px28 {
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 4px;
+  }
+
+  .px36 {
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 6px;
+  }
+
+  .px56 {
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 8px;
+  }
+
+  .loader {
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0, -0.3, 0.5, 1.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &__px28 {
+      width: 16px;
+    }
+
+    &__px36 {
+      width: 20px;
+    }
+
+    &__px56 {
+      width: 24px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      animation-timing-function: linear;
+      animation-duration: 1000ms;
+    }
+  }
+
+  .shimmer__primary {
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: calc(100% / 3);
+    height: 100%;
+    opacity: 0.12;
+    background-image: linear-gradient(to right, #fff, #b3b0af);
+
+    animation: shimmerAnimation 1000ms linear infinite;
+  }
+
+  .shimmer__secondary {
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: calc(100% / 3);
+    height: 100%;
+    opacity: 0.12;
+    background-image: linear-gradient(to right, #000, #b3b0af);
+    animation: shimmerAnimation 1000ms linear infinite;
+  }
+
+  @keyframes shimmerAnimation {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(450%);
+    }
+  }
+}
