@@ -34,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({
     setIsLoading((prev) => !prev);
   };
 
-  const handleMouseDown = (event: any) => {
+  const handleMouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
     const button = event.currentTarget;
     const buttonRect = button.getBoundingClientRect();
     const x = event.clientX - buttonRect.left;
